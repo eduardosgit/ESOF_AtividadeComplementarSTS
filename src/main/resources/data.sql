@@ -1,0 +1,1 @@
+INSERT INTO ALUNO VALUES (12345, 'Eduardo');

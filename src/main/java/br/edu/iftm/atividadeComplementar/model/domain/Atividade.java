@@ -1,7 +1,14 @@
 package br.edu.iftm.atividadeComplementar.model.domain;
 
-public class Atividade {
+import java.io.Serializable;
+
+public class Atividade implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Integer codigo;
 	
 	private String nome;
@@ -10,16 +17,16 @@ public class Atividade {
 	
 	private Integer percentualPorAtividade;
 	
-	private Integer maximoAtividadeSemestre;
+	private Integer maximoAtividadesSemestre;
 
 	public Atividade(Integer codigo, String nome, Integer percentualCargaHoraria, Integer percentualPorAtividade,
-			Integer maximoAtividadeSemestre) {
+			Integer maximoAtividadesSemestre) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.percentualCargaHoraria = percentualCargaHoraria;
 		this.percentualPorAtividade = percentualPorAtividade;
-		this.maximoAtividadeSemestre = maximoAtividadeSemestre;
+		this.maximoAtividadesSemestre = maximoAtividadesSemestre;
 	}
 
 	public Atividade() {
@@ -67,11 +74,11 @@ public class Atividade {
 		this.percentualPorAtividade = percentualPorAtividade;
 	}
 
-	public Integer getMaximoAtividadeSemestre() {
-		return maximoAtividadeSemestre;
+	public Integer getMaximoAtividadesSemestre() {
+		return maximoAtividadesSemestre;
 	}
 
-	public void setMaximoAtividadeSemestre(Integer maximoAtividadeSemestre) {
-		this.maximoAtividadeSemestre = maximoAtividadeSemestre;
+	public void setMaximoAtividadesSemestre(Integer maximoAtividadesSemestre) {
+		this.maximoAtividadesSemestre = maximoAtividadesSemestre;
 	}
 }

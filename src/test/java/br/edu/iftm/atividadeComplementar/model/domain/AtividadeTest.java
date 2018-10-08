@@ -14,22 +14,24 @@ public class AtividadeTest {
 	}
 	
 	@Test
-	public void testaQuantidadeTotalHorasSistemas() {
-		//Monitoria - 50% do total
+	public void testaQuantidadeLimiteHoras() {
 		int percentualMonitoria = 50;
 		int quantidadeHorasSistemasParaInternet = 60;
+		atividade.setNome("Monitoria");
+		atividade.setMaximoAtividadesSemestre(1);
 		atividade.setPercentualPorAtividade(percentualMonitoria);
 		int quantidadeHoras = atividade.getValorLimiteHorasAtividade(quantidadeHorasSistemasParaInternet);
-		Assert.assertEquals(quantidadeHoras, 30);
+		Assert.assertEquals(quantidadeHoras,30);
 	}
 	
 	@Test
-	public void testaQuantidadeTotalHorasLicenciatura() {
-		//Monitoria - 50% do total
-		int percentualMonitoria = 50;
-		int quantidadeHorasLicenciatura = 100;
-		atividade.setPercentualPorAtividade(percentualMonitoria);
+	public void testaQuantidadeLimiteHorasLicenciatura() {
+		int percentualCurso = 40;
+		int quantidadeHorasLicenciatura = 200;
+		atividade.setNome("Cursos e Minicursos");
+		atividade.setMaximoAtividadesSemestre(2);
+		atividade.setPercentualPorAtividade(percentualCurso);
 		int quantidadeHoras = atividade.getValorLimiteHorasAtividade(quantidadeHorasLicenciatura);
-		Assert.assertEquals(quantidadeHoras, 50);
+		Assert.assertEquals(quantidadeHoras,80);
 	}
 }

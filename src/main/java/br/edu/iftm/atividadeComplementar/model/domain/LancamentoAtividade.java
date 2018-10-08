@@ -44,6 +44,9 @@ public class LancamentoAtividade {
 		}
 	}
 	
+	//public Integer getHorasAproveitadas() {
+		
+		//}
 	
 	public Integer getHorasAproveitadas() {
 		return null;

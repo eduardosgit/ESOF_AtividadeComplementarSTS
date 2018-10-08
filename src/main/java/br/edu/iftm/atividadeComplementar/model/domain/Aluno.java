@@ -1,12 +1,24 @@
 package br.edu.iftm.atividadeComplementar.model.domain;
 
-public class Aluno {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Aluno implements Serializable{
 	
-	private Integer ra;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	private Long ra;
 	
 	private String nome;
 
-	public Aluno(Integer ra, String nome) {
+	public Aluno(Long ra, String nome) {
 		super();
 		this.ra = ra;
 		this.nome = nome;
@@ -16,11 +28,11 @@ public class Aluno {
 		super();
 	}
 
-	public Integer getRa() {
+	public Long getRa() {
 		return ra;
 	}
 
-	public void setRa(Integer ra) {
+	public void setRa(Long ra) {
 		this.ra = ra;
 	}
 
