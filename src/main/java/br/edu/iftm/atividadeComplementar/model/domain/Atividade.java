@@ -2,31 +2,39 @@ package br.edu.iftm.atividadeComplementar.model.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Atividade implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
 	
 	private String nome;
 	
 	private Integer percentualCargaHoraria;
 	
-	private Integer percentualPorAtividade;
-	
 	private Integer maximoAtividadesSemestre;
+	
+	private Integer percentualPorAtividade;
 
-	public Atividade(Integer codigo, String nome, Integer percentualCargaHoraria, Integer percentualPorAtividade,
-			Integer maximoAtividadesSemestre) {
+	public Atividade(Integer codigo, String nome, Integer percentualCargaHoraria, Integer maximoAtividadesSemestre,
+			Integer percentualPorAtividade) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.percentualCargaHoraria = percentualCargaHoraria;
-		this.percentualPorAtividade = percentualPorAtividade;
 		this.maximoAtividadesSemestre = maximoAtividadesSemestre;
+		this.percentualPorAtividade = percentualPorAtividade;
 	}
 
 	public Atividade() {
@@ -37,10 +45,9 @@ public class Atividade implements Serializable{
 		return totalHorasComplementares * percentualPorAtividade / 100;
 	}
 	
-	public Integer getHorasAproveitadasPorAtividade(Integer totalHorasComplementares) {
-		return getValorLimiteHorasAtividade(totalHorasComplementares) * percentualCargaHoraria / 100;
+	public Integer getHorasAproveitadasPorAtividade(Integer totalhorasComplementares) {
+		return getValorLimiteHorasAtividade(totalhorasComplementares) * percentualCargaHoraria / 100; 
 	}
-	
 
 	public Integer getCodigo() {
 		return codigo;
@@ -66,14 +73,6 @@ public class Atividade implements Serializable{
 		this.percentualCargaHoraria = percentualCargaHoraria;
 	}
 
-	public Integer getPercentualPorAtividade() {
-		return percentualPorAtividade;
-	}
-
-	public void setPercentualPorAtividade(Integer percentualPorAtividade) {
-		this.percentualPorAtividade = percentualPorAtividade;
-	}
-
 	public Integer getMaximoAtividadesSemestre() {
 		return maximoAtividadesSemestre;
 	}
@@ -81,4 +80,12 @@ public class Atividade implements Serializable{
 	public void setMaximoAtividadesSemestre(Integer maximoAtividadesSemestre) {
 		this.maximoAtividadesSemestre = maximoAtividadesSemestre;
 	}
+
+	public Integer getPercentualPorAtividade() {
+		return percentualPorAtividade;
+	}
+
+	public void setPercentualPorAtividade(Integer percentualPorAtividade) {
+		this.percentualPorAtividade = percentualPorAtividade;
+	}	
 }

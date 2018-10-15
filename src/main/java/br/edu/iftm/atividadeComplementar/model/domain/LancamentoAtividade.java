@@ -3,8 +3,17 @@ package br.edu.iftm.atividadeComplementar.model.domain;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class LancamentoAtividade {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
 	
 	private Integer quantidadeHoras;
@@ -13,8 +22,10 @@ public class LancamentoAtividade {
 	
 	private Date dataFim;
 	
+	@ManyToOne
 	private Aluno aluno;
 	
+	@ManyToOne
 	private Atividade atividade;
 
 	public LancamentoAtividade(Integer codigo, Integer quantidadeHoras, Date dataInicio, Date dataFim, Aluno aluno,
@@ -27,29 +38,25 @@ public class LancamentoAtividade {
 		this.aluno = aluno;
 		this.atividade = atividade;
 	}
-
-	public LancamentoAtividade() {
-		super();
-	}
 	
 	public String getSemestreAtividade() {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(dataFim);
 		int ano = calendar.get(Calendar.YEAR);
 		int mes = calendar.get(Calendar.MONTH);
-		if(mes > 5 ) {
+		if (mes > 5) {
 			return ano+"-2";
-		}else {
+		} else {
 			return ano+"-1";
 		}
 	}
 	
 	//public Integer getHorasAproveitadas() {
 		
-		//}
-	
-	public Integer getHorasAproveitadas() {
-		return null;
+	//}
+
+	public LancamentoAtividade() {
+		super();
 	}
 
 	public Integer getCodigo() {
